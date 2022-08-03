@@ -15,7 +15,7 @@ class ImageController extends Controller
     public function addImage(Request $request)
     {
         $path = $request->file('imagejun')->store('images');
-        DB::table('images')->insert([
+        Image::create([
             'url' => $path,
             'title' => $request['title']
         ]);
